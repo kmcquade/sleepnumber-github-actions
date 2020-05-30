@@ -1,12 +1,32 @@
-name: Wake me up at 730am on weekdays
+name: Wake me up at 730am and 8am on weekdays (US Eastern time)
 on:
   schedule:
-    - cron: '30 07 * * 1-5'
+    - cron: '30 11 * * 1-5'  # 730am Eastern
+    - cron: '00 12 * * 1-5'  # 8am Eastern
+
 jobs:
   wakeup:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
 
-      - name: Wake up
-        run: ./run.sh
+    strategy:
+      matrix:
+        go-version: [1.13.x]
+        platform: [ubuntu-latest]
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+    - name: Install Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: ${{ matrix.go-version }}
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Get
+      run: go get github.com/danpenn/SleepIQ
+
+    - name: Run
+      run: go run main.go
+      env:
+        SLEEPIQ_USER: ${{ secrets.SLEEPIQ_USER }}
+        SLEEPIQ_PASS: ${{ secrets.SLEEPIQ_PASS }}
