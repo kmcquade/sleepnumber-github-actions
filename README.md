@@ -1,5 +1,5 @@
 # sleepnumber-github-actions
-,
+
 Use GitHub actions and my Sleep Number bed to wake me up in the morning. Tilts the bed to "Watch TV" position and helps me wake up without any alarms. Previously, I would set 2 hours of alarms to get out of bed. Now, I save those two hours of sleep and wake up very gently in the morning with this trick.
 
 ![Test wakeup](https://github.com/kmcquade/sleepnumber-github-actions/workflows/Test%20wakeup/badge.svg)
