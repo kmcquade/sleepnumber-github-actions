@@ -22,11 +22,15 @@ jobs:
       uses: actions/setup-go@v2
       with:
         go-version: ${{ matrix.go-version }}
+
     - name: Checkout code
       uses: actions/checkout@v2
-#    - name: Test
-#      run: go test ./...
+
     - name: Get
       run: go get github.com/danpenn/SleepIQ
+
     - name: Run
       run: go run main.go
+      with:
+        SLEEPIQ_USER: ${{ secrets.SLEEPIQ_USER }}
+        SLEEPIQ_PASS: ${{ secrets.SLEEPIQ_PASS }}
