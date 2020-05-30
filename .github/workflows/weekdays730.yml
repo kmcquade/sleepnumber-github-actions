@@ -6,4 +6,7 @@ jobs:
   wakeup:
     runs-on: ubuntu-latest
     steps:
-      - run: ./run.sh
+      - uses: actions/checkout@v2
+
+      - name: Wake up
+        run: ./run.sh
