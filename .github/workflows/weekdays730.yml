@@ -6,5 +6,4 @@ jobs:
   wakeup:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          ./main
+      - run: ./run.sh
