@@ -1,4 +1,4 @@
-# Test Just running the same shit because I don't feel like building the dumb curl request to test out the GitHub action
+# 1 Test Just running the same shit because I don't feel like building the dumb curl request to test out the GitHub action
 name: Test wakeup
 on: push
 jobs:
